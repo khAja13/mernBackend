@@ -2,7 +2,8 @@ const express = require("express");
 const router = require("./routes/route");
 const app = express();
 const ownRouter = require("./routes/route")
-
+const cors = require('cors')
+app.use(cors)
 require('dotenv').config()
 
 app.use(express.json())
