@@ -10,14 +10,7 @@ router.get("/", (req, res) => {
     res.sendFile(path.join(__dirname + "/info.html"))
 })
 
-router.get("/user", async (req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "OPTIONS, GET, POST, PUT, PATCH, DELETE"
-    );
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    next();
+router.get("/user", async (req, res) => {
     try{
         const result = await Model.find();
         res.json(result)
@@ -41,14 +34,7 @@ router.get("/user/:id", async (req, res) => {
     }
 })
 
-router.post("/user", (req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "OPTIONS, GET, POST, PUT, PATCH, DELETE"
-    );
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    next();
+router.post("/user", (req, res) => {
     const model = new Model(req.body);
 
     model.save().then(()=>{
