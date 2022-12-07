@@ -4,6 +4,7 @@ const path = require('path');
 require('../db/conn')
 
 const Model = require('../db/model')
+
 router.get("/", (req, res) => {
     console.log("done")
     res.sendFile(path.join(__dirname + "/info.html"))
